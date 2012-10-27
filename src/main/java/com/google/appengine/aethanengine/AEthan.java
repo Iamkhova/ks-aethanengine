@@ -1,7 +1,15 @@
 package com.google.appengine.aethanengine;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 
 public class AEthan
 {
+
+private static final Logger LOG = Logger.getLogger(
+MainServlet.class.getName());
+
 	Team homeTeam;
 	Team awayTeam;
 	GameStats stats;
@@ -27,7 +35,8 @@ public class AEthan
 	
 	public GameStats simGame(){
 		 
-		
+		LOG.info("Simming Game... ");
+  
 		stats.homeTeamFinalScore = 5;
 		stats.awayTeamFinalScore = 6;
 		

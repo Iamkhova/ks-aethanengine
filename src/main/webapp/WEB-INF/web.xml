@@ -8,10 +8,23 @@
         <servlet-class>com.google.appengine.demos.search.TextSearchServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+     
+    <servlet>
+        <servlet-name>aethanstart</servlet-name>
+        <servlet-class>com.google.appengine.aethanengine.MainServlet</servlet-class>
+    </servlet>     
+     
     <servlet-mapping>
         <servlet-name>textsearch</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
+    
+        <servlet-mapping>
+        <servlet-name>aethanstart</servlet-name>
+        <url-pattern>/aestart</url-pattern>
+    </servlet-mapping> 
+     
+     
     <welcome-file-list>
       <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
