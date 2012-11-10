@@ -16,7 +16,7 @@ public class Team {
 	
 	// Variables
 	String team_city; // Team City Name
-	Player[] player = new Player[ROSTERSIZE];
+	CPlayer[] player = new CPlayer[ROSTERSIZE];
 	
 /**************************************************************************/
 /* METHODS																  */
@@ -39,8 +39,8 @@ public class Team {
 		
 		for (int x = 0; x < ROSTERSIZE; x++){
 			// Create Players for Team;
-			player[x] = new Player();
-			player[x].createPlayer("Joe");
+			player[x] = new CPlayer();
+		//	player[x].createPlayer("Joe");
 			
 		}
 		

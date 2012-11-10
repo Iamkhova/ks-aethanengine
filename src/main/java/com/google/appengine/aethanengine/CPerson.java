@@ -115,6 +115,7 @@ public class CPerson
                      break;        
                      }
       LOG.info("Random last Name Built)");
+      LOG.info("Player Created" + firstName + " " + lastName);
      
       nickname = "ntest";
       heightInches = 72;
