@@ -10,8 +10,7 @@ public class CTeam
    String teamName;
    String teamName2;
    CPlayer[] player = new CPlayer[10]; //TODO This is Temp Roster Size
-   
-  
+    
    
    public CTeam()
    {

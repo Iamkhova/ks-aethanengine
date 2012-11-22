@@ -47,5 +47,9 @@ private static final Logger LOG = Logger.getLogger(MainServlet.class.getName())
 		
 		return this.stats;
 	}
+ 
+  void setBattingOrder(){
+    
+  }
 		
 }

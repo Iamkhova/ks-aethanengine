@@ -1,6 +1,7 @@
 package com.google.appengine.aethanengine;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.UUID;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -15,7 +16,7 @@ public class CPerson
 
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
    
-   int humanID;
+   UUID humanID;
 
    String firstName;
 
@@ -41,7 +42,7 @@ public class CPerson
       // Initalize Class
       LOG.info("Initalizing CPerson()");
       
-      humanID = 0;
+      humanID = UUID.randomUUID();
       firstName = "ftest";
       lastName = "ltest";
       nickname = "ntest";
@@ -115,7 +116,7 @@ public class CPerson
                      break;        
                      }
       LOG.info("Random last Name Built)");
-      LOG.info("Player Created" + firstName + " " + lastName);
+      LOG.info("Player Created" + firstName + " " + lastName + " ID " + humanID);
      
       nickname = "ntest";
       heightInches = 72;
