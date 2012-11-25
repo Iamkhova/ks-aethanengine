@@ -16,7 +16,7 @@ public class CPerson
 
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
    
-   UUID humanID;
+   UUID humanID; // Unique ID for each person created in the game.. overkill?
 
    String firstName;
 
