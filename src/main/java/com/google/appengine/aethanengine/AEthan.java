@@ -3,6 +3,9 @@ package com.google.appengine.aethanengine;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/*
+ * AEthan Engine
+ */
 public class AEthan
 {
 
@@ -37,6 +40,9 @@ public class AEthan
 		  awayTeam.createTeam("Cary", "WildCats");
 		
       LOG.info("Away Team Created");
+      
+      //Manager AI Test
+      homeTeam.manager.aiDetermineBattingOrder(homeTeam);
     }
 	
 	/*

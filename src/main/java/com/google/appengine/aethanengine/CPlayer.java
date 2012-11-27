@@ -34,7 +34,8 @@ public class CPlayer extends CPerson
    /*
      * Create Sample Random Player
      */
-   public void createPlayer()
+   @Override
+   public void create()
    {
 
       createRandom();

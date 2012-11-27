@@ -16,11 +16,16 @@ import com.google.appengine.api.files.GSFileOptions.GSFileOptionsBuilder;
 
 import java.util.Random;
 
+
+
 /*
  * Utility Class for helping develop structure
  */
 public class CUtil
 {
+
+ // Implement Logging
+   private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
 
    /*
     * Random Integer Generator
@@ -78,5 +83,77 @@ public class CUtil
       ePerson.setProperty("ISO", "USA");
 
       datastore.put(ePerson);
+   }
+   
+   /*
+    * Returns Name (NameType, Race)
+    */
+   public String getName(int namePos)
+   {
+     String name = new String();
+     
+     int randomNumber = randomInt(10);
+  
+     if (namePos == 0) // First Name
+     {
+        // Build Random Teams and Names   
+        switch (randomNumber) {
+            case 0:  name = "Kareem";
+                     break;
+            case 1:  name = "Rahed";
+                     break;
+            case 2:  name = "Raishad";
+                     break;
+            case 3:  name = "Darius";
+                     break;
+            case 4:  name = "Stephen";
+                     break;
+            case 5:  name = "Owen";
+                     break;
+            case 6:  name = "James";
+                     break;
+            case 7:  name = "John";
+                     break;
+            case 8:  name = "Jack";
+                     break;
+            case 9:  name = "Arthur";
+                     break;
+            default: name = "Error";
+                     LOG.severe("Bad Random Number" + randomNumber);
+                     break;        
+                     }
+            LOG.info("Random First Name Built)");
+   }else{
+   
+      switch (randomNumber) {
+            case 0:  name = "Glover";
+                     break;
+            case 1:  name = "Neal";
+                     break;
+            case 2:  name = "Webb";
+                     break;
+            case 3:  name = "Johnson";
+                     break;
+            case 4:  name = "James";
+                     break;
+            case 5:  name = "Simpson";
+                     break;
+            case 6:  name = "Castle";
+                     break;
+            case 7:  name = "Diamond";
+                     break;
+            case 8:  name = "Fucner";
+                     break;
+            case 9:  name = "Cario";
+                     break;
+            default: name = "Error";
+                     LOG.severe("Last Name Bad Random Number" + randomNumber);
+                     break;        
+                     }
+      LOG.info("Random last Name Built)");
+     
+   }
+     
+     return name;
    }
 }
