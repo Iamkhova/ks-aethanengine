@@ -27,7 +27,7 @@ public class CAIlogic
  }
    
    
-    Fielding thoughts_fielding;
+    Fielding thoughts_fielding = new Fielding();
     ArrayList thoughts_currentbattingorder = new ArrayList();
 
   // Implement Logging
@@ -39,7 +39,6 @@ public class CAIlogic
    public void aiDetermineBattingOrder(CTeam team)
    {
       LOG.info("AI.. DetermineBattingOrder");
-      ArrayList thoughts = new ArrayList();
 
       //TODO Batting Order set First to Last.. no logic here now
       for (int x = 0; x < 10; x++)
@@ -48,7 +47,7 @@ public class CAIlogic
       }
 
       //Logging
-      LOG.info("Batting Order: " + thoughts);
+      LOG.info("Batting Order: " + thoughts_currentbattingorder);
       
 
    }
@@ -59,8 +58,6 @@ public class CAIlogic
    public void aiDetermineFielding(CTeam team)
    {
      LOG.info("AI.. DetermineFielding");
-
-     AEthan.Lineup fielding = new AEthan.Lineup();
      
      //TODO put together some real logic code.. right now first in first out
      thoughts_fielding.pitcher = team.player[0].humanID.toString();
