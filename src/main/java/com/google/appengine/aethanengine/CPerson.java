@@ -34,6 +34,8 @@ public class CPerson
 
    int nationality;
    
+   CAIlogic brain = new CAIlogic();
+   
    /*
     * Initalizing Class
     */

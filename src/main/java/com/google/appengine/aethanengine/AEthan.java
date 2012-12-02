@@ -10,6 +10,16 @@ public class AEthan
 {
 
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
+   
+
+   
+   //////////////////////////////////////////////////////////////////////////////////
+   /////////////////////CONSTANTS
+   //////////////////////////////////////////////////////////////////////////////////
+   // public enum GameAI {AI_DETERMINE_BATTING_ORDER, AI_DETERMINE_FIELDING};
+   //TODO Replace Constants with enums or something better
+   public static final int AI_DETERMINE_BATTING_ORDER = 0;
+   public static final int AI_DETERMINE_FIELDING = 1;
 
    CTeam homeTeam;
    CTeam awayTeam;
@@ -34,6 +44,7 @@ public class AEthan
      */  
     public void createTest()
     {
+    
 		  homeTeam.createTeam("Raleigh", "Storm");
       LOG.info("Home Team Created");
 
@@ -42,7 +53,10 @@ public class AEthan
       LOG.info("Away Team Created");
       
       //Manager AI Test
-      homeTeam.manager.aiDetermineBattingOrder(homeTeam);
+      homeTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER,homeTeam);
+      awayTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER,awayTeam);
+      homeTeam.manager.aiGameAction(AI_DETERMINE_FIELDING,homeTeam);
+      awayTeam.manager.aiGameAction(AI_DETERMINE_FIELDING,awayTeam);
     }
 	
 	/*
