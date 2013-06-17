@@ -3,22 +3,13 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
    version="2.5">
-    <servlet>
-        <servlet-name>textsearch</servlet-name>
-        <servlet-class>com.google.appengine.demos.search.TextSearchServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-     
+
     <servlet>
         <servlet-name>aethanstart</servlet-name>
         <servlet-class>com.google.appengine.aethanengine.MainServlet</servlet-class>
     </servlet>     
-     
-    <servlet-mapping>
-        <servlet-name>textsearch</servlet-name>
-        <url-pattern>/search</url-pattern>
-    </servlet-mapping>
-    
+
+   
         <servlet-mapping>
         <servlet-name>aethanstart</servlet-name>
         <url-pattern>/aestart</url-pattern>

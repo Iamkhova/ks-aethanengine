@@ -1,3 +1,3 @@
 <%
-  request.getRequestDispatcher("/search").forward(request, response);
+  request.getRequestDispatcher("/aestart").forward(request, response);
 %>
