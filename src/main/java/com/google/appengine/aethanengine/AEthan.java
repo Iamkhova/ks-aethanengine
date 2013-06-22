@@ -128,7 +128,15 @@ public class AEthan {
 	 */
 	private void testSimHalfInning()
 	{
+		CUtil util = new CUtil();
 		
+		if (util.teamAtbat(inning) == true)
+		{
+			LOG.info("Home Team at bat");
+		}else
+		{
+			LOG.info("Away Team at bat.")
+		}
 	}
 
 }

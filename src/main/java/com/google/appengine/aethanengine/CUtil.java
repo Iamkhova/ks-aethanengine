@@ -39,6 +39,22 @@ public class CUtil
       return random;
 
    }
+   
+   public boolean teamAtBat(double inning)
+   {
+	   boolean value;
+	   
+	   if ( (inning % 2) == 0)
+	   {
+	       value = true
+	   }
+	   else
+	   {
+	       value = false
+	   }
+	   
+	   return value;
+   }
 
    /*
     * TODO build loadXML Class
