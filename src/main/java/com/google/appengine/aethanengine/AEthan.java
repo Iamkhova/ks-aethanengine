@@ -37,6 +37,7 @@ public class AEthan
 	    homeTeam = new CTeam();
 	    awayTeam = new CTeam();
 	    stats = new GameStats();
+        
     }
 
     /*
@@ -59,7 +60,7 @@ public class AEthan
       awayTeam.manager.aiGameAction(AI_DETERMINE_FIELDING,awayTeam);
     }
 	
-	/*
+	/*=0
    * Siming GameStats
    */
    public GameStats simGame()
@@ -82,6 +83,22 @@ public class AEthan
   
     home1 = team.player[0]; 
     
+
   }
+
+	private void advanceInningHalf()
+	{
+		stats.inning +=0.05;
+        LOG.info("Advanced half inning");
+	}
+
+    private void resetInning()
+	{
+		stats.currentBalls = 0;
+        stats.currentStrikes = 0;
+        stats.currentOuts = 0;
+        LOG.info("Inning stats reset");
+
+	}
 		
 }
