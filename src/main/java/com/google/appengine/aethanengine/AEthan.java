@@ -54,21 +54,43 @@ public class AEthan {
 		awayTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER, awayTeam);
 		homeTeam.manager.aiGameAction(AI_DETERMINE_FIELDING, homeTeam);
 		awayTeam.manager.aiGameAction(AI_DETERMINE_FIELDING, awayTeam);
+  
+    // Inning Test  
+    stats.gameOver = false;
+    simGame();
 
 	}
 
 	/*
-	 * =0 Siming GameStats
+	 *  Siming GameStats
 	 */
 	public GameStats simGame() {
 
 		LOG.info("Simming Game... ");
+  
+     while (stats.gameOver == false ) {
+     testSimHalfInning();
+     advanceInningHalf();
+     
+     
+     }
 
-		stats.homeTeamFinalScore = 5;
-		stats.awayTeamFinalScore = 6;
 
-		return this.stats;
 	}
+ 
+ /*
+  * gamecheck
+  */
+  private void gameCheck()
+  {
+    if ((stats.inning > 9) && (stats.currentScoreHomeTeam != stats.currentScoreAwayTeam))
+    {
+      LOG.info("Game Over");
+      
+      
+    }
+    
+  }
 
 	/*
 	 * getBenchTeam Pulls players and assign them to bench bench has 10 players
@@ -103,23 +125,23 @@ public class AEthan {
 	 */
 	private void addBall() {
 		stats.currentBalls += 1;
-		LOG.info("Balls increase.")
+		LOG.info("Balls increase.");
 	}
 	
 	/*
 	 * addStrike
 	 */
 	private void addStrike() {
-		stats.CurrentStrikes +=1 ;
-		LOG.info("Strikes increase.")
+		stats.currentStrikes +=1 ;
+		LOG.info("Strikes increase.");
 	}
 	
 	/*
 	 * addOut
 	 */
 	private void addOut() {
-		stats.CurrentOuts +=1;
-		LOG.info("Outs increase.")
+		stats.currentOuts +=1;
+		LOG.info("Outs increase.");
 	
 	}
 	
@@ -130,12 +152,14 @@ public class AEthan {
 	{
 		CUtil util = new CUtil();
 		
-		if (util.teamAtbat(inning) == true)
+		if (util.teamAtBat(stats.inning) == true)
 		{
-			LOG.info("Home Team at bat");
+			stats.currentScoreHomeTeam += util.randomInt(4);
+      LOG.info("Home Team at bat");
 		}else
 		{
-			LOG.info("Away Team at bat.")
+      stats.currentScoreAwayTeam += util.randomInt(4);
+			LOG.info("Away Team at bat.");
 		}
 	}
 

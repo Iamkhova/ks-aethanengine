@@ -46,11 +46,11 @@ public class CUtil
 	   
 	   if ( (inning % 2) == 0)
 	   {
-	       value = true
+	       value = true;
 	   }
 	   else
 	   {
-	       value = false
+	       value = false;
 	   }
 	   
 	   return value;

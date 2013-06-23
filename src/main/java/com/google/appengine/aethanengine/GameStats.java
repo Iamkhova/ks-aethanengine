@@ -10,7 +10,10 @@ public class GameStats
 	
     public double inning = 0;
 	public int currentBalls = 0;
-    public int currentStrike = 0;
-    public int currentBalls = 0;
+    public int currentStrikes = 0;
+    public int currentOuts = 0;
+    
+    public boolean gameOver = false;
+    
 	
 }
