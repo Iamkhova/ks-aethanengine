@@ -18,6 +18,8 @@ public class AEthan {
 	// TODO Replace Constants with enums or something better
 	public static final int AI_DETERMINE_BATTING_ORDER = 0;
 	public static final int AI_DETERMINE_FIELDING = 1;
+ 
+  public static final int GAME_INNINGS = 9;
 
 	CTeam homeTeam;
 	CTeam awayTeam;
@@ -64,12 +66,13 @@ public class AEthan {
 	/*
 	 * Siming GameStats
 	 */
-	public GameStats simGame() {
+	public void simGame() {
 
 		LOG.info("Simming Game... ");
 
 		while (stats.gameOver == false) {
 			testSimHalfInning();
+      LOG.info("Current Score Home: " + stats.currentScoreHomeTeam + " Away: " + stats.currentScoreAwayTeam);
 			advanceInningHalf();
 			gameCheck();
 
@@ -81,9 +84,10 @@ public class AEthan {
 	 * gamecheck
 	 */
 	private void gameCheck() {
-		if ((stats.inning > 9)
+		if ((stats.inning >= GAME_INNINGS) && (stats.inningTop == false)
 				&& (stats.currentScoreHomeTeam != stats.currentScoreAwayTeam)) {
-			LOG.info("Game Over");
+      stats.gameOver = true;
+			LOG.info("Game Over Home: " + stats.currentScoreHomeTeam + " Away: " + stats.currentScoreAwayTeam);
 
 		}
 
@@ -102,9 +106,27 @@ public class AEthan {
 	 * advanceInningHalf Advances game a hald inning
 	 */
 	private void advanceInningHalf() {
-		stats.inning += 0.05;
-		LOG.info("Advanced half inning to " + stats.inning);
+    flipInning();
+		if (stats.inningTop == true) {
+      stats.inning += 1;
+      LOG.info("Advanced inning to " + stats.inning);
+      LOG.info("Home Team At Bat");
+      }
+      else {
+        LOG.info("Away Team at Bat.");
+      }
+		
+
 	}
+ 
+  private void flipInning()
+  {
+    if (stats.inningTop == true)
+    {
+      stats.inningTop = false;
+    }
+    else stats.inningTop = true;
+  }
 
 	/*
 	 * resetInning Resets Inning data back to default
@@ -150,7 +172,7 @@ public class AEthan {
 		int runScored = 0;
 		runScored = util.randomInt(4);
 
-		if (util.teamAtBat(stats.inning) == true) {
+		if (stats.inningTop == true) {
 			stats.currentScoreHomeTeam += runScored;
 			LOG.info("Home Team at bat scored: " + runScored + " this inniing.");
 		} else {
