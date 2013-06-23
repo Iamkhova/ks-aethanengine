@@ -14,6 +14,6 @@ public class GameStats
     public int currentOuts = 0;
     
     public boolean gameOver = false;
-    
+    public boolean inningTop = true;
 	
 }
