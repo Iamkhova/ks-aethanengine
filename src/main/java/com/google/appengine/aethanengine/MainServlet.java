@@ -26,6 +26,8 @@ public class MainServlet extends HttpServlet
        
       AEthan game = new AEthan();
       game.createTest();
+      game.testPlayerPitch();
+      
     //  GameStats stats;
       
       
