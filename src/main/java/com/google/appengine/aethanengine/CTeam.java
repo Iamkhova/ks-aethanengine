@@ -31,13 +31,13 @@ public class CTeam
 			  // Create Players for Team;
         LOG.info("Player About to be born");
 		  	player[x] = new CPlayer();
-		    player[x].create();
+		    player[x].testCreate();
         LOG.info("Player Born : " + x);
 
 			}
    
    // Create Manager For Team
-       manager.create();
+       manager.testCreate();
    
    LOG.info("Team Created");
 

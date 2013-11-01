@@ -26,6 +26,7 @@ public class AEthan {
 	GameStats stats;
 	CPlayer home1;
 	CPlayer home2;
+  
 
 	/*
 	 * Initalize Vlass
@@ -52,16 +53,25 @@ public class AEthan {
 		LOG.info("Away Team Created");
 
 		// Manager AI Test
-		homeTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER, homeTeam);
-		awayTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER, awayTeam);
-		homeTeam.manager.aiGameAction(AI_DETERMINE_FIELDING, homeTeam);
-		awayTeam.manager.aiGameAction(AI_DETERMINE_FIELDING, awayTeam);
+	//	homeTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER, homeTeam);
+		//awayTeam.manager.aiGameAction(AI_DETERMINE_BATTING_ORDER, awayTeam);
+		//homeTeam.manager.aiGameAction(AI_DETERMINE_FIELDING, homeTeam);
+	//	awayTeam.manager.aiGameAction(AI_DETERMINE_FIELDING, awayTeam);
 
 		// Inning Test
-		stats.gameOver = false;
-		simGame();
+	//	stats.gameOver = false;
+		//simGame();
 
 	}
+ 
+ /*
+  * testPlayerPitch
+  * Test Pitching Code
+  */
+ public void testPlayerPitch ()
+ {
+   homeTeam.player[0].action.actionScoutPlayer(awayTeam);
+ }
 
 	/*
 	 * Siming GameStats

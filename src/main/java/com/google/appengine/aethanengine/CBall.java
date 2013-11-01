@@ -8,21 +8,26 @@ public class CBall
    // Implement Logging
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
    
+
+public class BatZone
+{
+  int left;
+  int right;
+  
+}
    UUID ballID;
-   int speed;
-   int direction;
-   int type;
-   int state;
-   
+   double velocityMPH;
+   double spin;
+   BatZone zone = new BatZone();
+      
    public CBall()
    {
       // Initalize Class
       LOG.info("Initalizing CBall()");
-      
       ballID = UUID.randomUUID();
-      speed = 0;
-      direction = 0;
-      type = 0;
-      state = 0;     
+      velocityMPH = 0.0;
+      spin = 0.0;
+      zone.left = 0;
+      zone.right = 0;      
    }
 }

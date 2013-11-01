@@ -1,3 +1,8 @@
+/*
+ * CPlayer.java Class
+ * Authored: IAMKHOVA
+ */
+
 package com.google.appengine.aethanengine;
 
 import com.google.appengine.aethanengine.CDefensiveRating;
@@ -16,6 +21,10 @@ public class CPlayer extends CPerson
 {
    // Implement Logging
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
+   
+   ////////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
 
    int playerID;
 
@@ -30,12 +39,18 @@ public class CPlayer extends CPerson
    COffensiveRating offensiveRating = new COffensiveRating();
 
    CPitchRating pitchingRating = new CPitchRating();
+   
+   ////////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+   
+   
 
    /*
-     * Create Sample Random Player
-     */
+    * Create Sample Random Player
+    */
    @Override
-   public void create()
+   public void testCreate()
    {
 
       createRandom();
@@ -51,6 +66,33 @@ public class CPlayer extends CPerson
       LOG.info("All Ratings Generated");
 
 
-        }
+    }
  
-}
+
+    /*
+     * Action Scout Player
+     */
+     public void actionScoutPlayer(CTeam team)
+     {
+          
+          //Psuedo Code
+          // Pick random Player
+          //string opposingPlayerName;
+          // opposingPlayerName = opposingTeam.PLayer(1).Name;
+          // log (opposingPlayerName)
+          
+          String oppossingPlayerName;
+          
+          oppossingPlayerName = team.player[0].firstName;
+          LOG.info(oppossingPlayerName);      
+       
+     }
+   
+ }
+ 
+
+ 
+ 
+ 
+  
+

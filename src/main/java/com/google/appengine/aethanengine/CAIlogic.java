@@ -1,4 +1,11 @@
+/*
+ *CAIlogic.java
+ *Authored: IAMKHOVA
+ */
+
+
 package com.google.appengine.aethanengine;
+
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,15 +32,17 @@ public class CAIlogic
     String centerFielder= new String();
    
  }
+
    
    
     Fielding thoughts_fielding = new Fielding();
     ArrayList thoughts_currentbattingorder = new ArrayList();
+    
 
   // Implement Logging
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
    
-    /*
+   /*********************************************************************************************************************************************
     * AI To Determine Batting Order
     */
    public void aiDetermineBattingOrder(CTeam team)
@@ -52,7 +61,7 @@ public class CAIlogic
 
    }
    
-   /*
+   /********************************************************************************************************************************************
     * AI To Determine Fielding
     */
    public void aiDetermineFielding(CTeam team)
@@ -73,5 +82,29 @@ public class CAIlogic
      LOG.info("AI.. Fielding thinking done.");
 
    }
+   
+   /*
+    * AI to Handle Pitching
+    */
+    public void aiActionDeterminePitch(CTeam team)
+    {
+      boolean pitch = false;
+      double pcontact;
+      double pgap;
+      double ppower;
+      double peye;
+      double pbaserunning;
+    
+      LOG.info("AI.. Determine Pitching");
+      
+      // TODO Examine Field for base runner to abort out of pitch
+      // this needs to be set up as a loop
+      pitch = true;
+      
+      //TODO Examine Batter
+      
+      
+      
+    }
 
 }
