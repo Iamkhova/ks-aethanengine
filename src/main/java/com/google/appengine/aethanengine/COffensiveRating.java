@@ -14,7 +14,7 @@ public class COffensiveRating
    // Set up Logging
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
 
-   double contact;
+double contact;
 
    double gap;
 
@@ -35,7 +35,24 @@ public class COffensiveRating
    double buntForHit;
 
    int hitterType;
+   
+   /*
+    * Getter and Setter
+    */
 
+    public double getContact(){ return contact;}
+    public double getGap(){ return gap;}
+    public double getPower(){return power;}
+    public double getEye(){return eye;}
+    public double getAvoidK(){return avoidK;}
+    public double getRunningSpeed(){return runningSpeed;}
+    public double getStealingBases(){return stealingBases;}
+    public double getBaseRunning(){return baseRunning;}
+    public double getSacrificeBunt(){return sacrificeBunt;}
+    public double getBuntForHit(){return buntForHit;}
+    public int getHitterType(){return hitterType;}
+    
+    
    /*
     * Init the class
     */

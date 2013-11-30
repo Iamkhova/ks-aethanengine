@@ -26,6 +26,7 @@ public class AEthan {
 	GameStats stats;
 	CPlayer home1;
 	CPlayer home2;
+  CBall ball = new CBall();
   
 
 	/*
@@ -70,7 +71,10 @@ public class AEthan {
   */
  public void testPlayerPitch ()
  {
-   homeTeam.player[0].action.actionScoutPlayer(awayTeam);
+   homeTeam.player[0].actionScoutPlayer(awayTeam);
+   homeTeam.player[0].actionPitchBall();
+   ball.velocityMPH = homeTeam.player[0].lastThrowSpeed;
+   LOG.info("Ball in flight.. speed:" + ball.velocityMPH);
  }
 
 	/*

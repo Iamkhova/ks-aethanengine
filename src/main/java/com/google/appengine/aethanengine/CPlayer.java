@@ -74,19 +74,23 @@ public class CPlayer extends CPerson
      */
      public void actionScoutPlayer(CTeam team)
      {
-          
-          //Psuedo Code
-          // Pick random Player
-          //string opposingPlayerName;
-          // opposingPlayerName = opposingTeam.PLayer(1).Name;
-          // log (opposingPlayerName)
-          
-          String oppossingPlayerName;
-          
-          oppossingPlayerName = team.player[0].firstName;
-          LOG.info(oppossingPlayerName);      
-       
-     }
+        String opposingPlayerName;   
+        opposingPlayerName = team.player[0].firstName;
+        brain.aiScoutPlayer(team,0);
+        LOG.info("Opposing Player Name:" + opposingPlayerName);  
+      }
+      
+      /* Action Pitch Ball
+       * 
+       */
+       public void actionPitchBall()
+       {
+         brain.aiChoosePitch();
+         lastThrowSpeed = brain.thoughts_nextPitch * 30;
+         
+         
+         
+       }
    
  }
  

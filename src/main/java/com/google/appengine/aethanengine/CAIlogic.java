@@ -10,6 +10,8 @@ package com.google.appengine.aethanengine;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
+import com.google.appengine.aethanengine.COffensiveRating;
+import com.google.appengine.aethanengine.CDefensiveRating;
 import com.google.appengine.aethanengine.AEthan;
 
 /*
@@ -32,15 +34,31 @@ public class CAIlogic
     String centerFielder= new String();
    
  }
+ 
+   // This part of the brain stores the player feedback after scouting another player. Used mostly for Pitcher/Batter scenaories
+   class PlayerScouted {
+       double contact;
+       double gap;
+       double power;
+       double eye;
+       double avoidK;
+       double runningSpeed;
+       double stealingBases;
+       double baseRunning;
+       double sacrificeBunt;
+       double buntForHit;
+       int hitterType;
+     }
 
-   
-   
+     // Declaring Thought Structure Here
     Fielding thoughts_fielding = new Fielding();
     ArrayList thoughts_currentbattingorder = new ArrayList();
+    PlayerScouted thoughts_playerScouted = new PlayerScouted(); // Set up thoughts to store scouted player info
+    int thoughts_nextPitch = 0;
     
 
   // Implement Logging
-   private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
+   private static final Logger LOG = Logger.getLogger(CAIlogic.class.getName());
    
    /*********************************************************************************************************************************************
     * AI To Determine Batting Order
@@ -101,10 +119,60 @@ public class CAIlogic
       // this needs to be set up as a loop
       pitch = true;
       
-      //TODO Examine Batter
+      //TODO Examine Batter   
+      
+    }
+    
+     /*
+      * We ante to look at player and store the intepertation of stats
+      */
+    public void aiScoutPlayer(CTeam team, int playerid)
+    {
+        // Right now we handel perfect scouting. Later on will have to add some degraded logic based on skill.
+        // I'm thinking of something along how many times the person has played against the other person, if 
+        // they have been on the same team or not, and if they spent any time in pre-game stuff
+        
+        thoughts_playerScouted.contact = team.player[playerid].offensiveRating.getContact();
+        thoughts_playerScouted.gap = team.player[playerid].offensiveRating.getGap();
+        thoughts_playerScouted.power = team.player[playerid].offensiveRating.getPower();
+        thoughts_playerScouted.eye = team.player[playerid].offensiveRating.getEye();
+        thoughts_playerScouted.avoidK = team.player[playerid].offensiveRating.getAvoidK();
+        thoughts_playerScouted.runningSpeed = team.player[playerid].offensiveRating.getRunningSpeed();
+        thoughts_playerScouted.stealingBases = team.player[playerid].offensiveRating.getStealingBases();
+        thoughts_playerScouted.baseRunning = team.player[playerid].offensiveRating.getBaseRunning();
+        thoughts_playerScouted.sacrificeBunt = team.player[playerid].offensiveRating.getSacrificeBunt();
+        thoughts_playerScouted.buntForHit = team.player[playerid].offensiveRating.getBuntForHit();
+        thoughts_playerScouted.hitterType = team.player[playerid].offensiveRating.getHitterType();
+        
+        LOG.info("AI.. Player Scouted. Player Contact:" + thoughts_playerScouted.contact);
+      
+    }
+    
+    /*
+     * Choose Pitch
+     */
+    public void aiChoosePitch()
+    {
+    
+      //Lets start off with two pitches and simple equation.. Four Seam Fastball and "Normal"
+      //If contact > 5 then normal.. if less then 5 then faseball
+      // 1 = Four Seam Fastball 2 = Normal
+      
+      if (thoughts_playerScouted.contact > 5)
+       {
+          thoughts_nextPitch = 2;
+          LOG.info("Pitching Normal Ball. Batter Contact :" + thoughts_playerScouted.contact);
+        }else
+        {
+          thoughts_nextPitch = 1;
+          LOG.info("Pitching Four Seam Fast Ball. Batter Contact :" + thoughts_playerScouted.contact);
+        }
+      
       
       
       
     }
+    
+    
 
 }

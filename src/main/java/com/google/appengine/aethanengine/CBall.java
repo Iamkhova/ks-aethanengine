@@ -9,16 +9,17 @@ public class CBall
    private static final Logger LOG = Logger.getLogger(MainServlet.class.getName());
    
 
-public class BatZone
+public class BallDirection
 {
-  int left;
-  int right;
+  double strikeZoneX;
+  double strikeZoneY;
+  int ballThrowDirection;
   
 }
    UUID ballID;
    double velocityMPH;
    double spin;
-   BatZone zone = new BatZone();
+   BallDirection zone = new BallDirection();
       
    public CBall()
    {
@@ -27,7 +28,8 @@ public class BatZone
       ballID = UUID.randomUUID();
       velocityMPH = 0.0;
       spin = 0.0;
-      zone.left = 0;
-      zone.right = 0;      
+      zone.strikeZoneX = 0.0;
+      zone.strikeZoneY = 0.0;
+      int ballThrowDirection = 0;      
    }
 }

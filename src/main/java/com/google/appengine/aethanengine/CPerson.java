@@ -12,6 +12,8 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 
+import com.google.appengine.aethanengine.CBall.BallDirection;
+
 
 /*
  * CPerson base class. Define basic attributes for all people in game.
@@ -44,7 +46,17 @@ public class CPerson
    int nationality;
    
    CAIlogic brain = new CAIlogic();
-   CAction action = new CAction();
+ //  BallDirection lastPitch = new BallDirection();
+   
+   double lastThrowSpeed = 0.0;
+   
+   // At the moment not sure where to best store this.
+   // The player lastThrowSpeed is the speed of this throwing arm
+   // prior to veolcity being applied to the ball. This does not 
+   // appear to be a brain function more of a holding information until
+   // speed is applied to ball game object
+   
+   
    
    ////////////////////////////////////////////////////////////////////////////////////
    ///////////////////////////////////////////////////////////////////////////////////
@@ -110,5 +122,8 @@ public class CPerson
       LOG.info("Random stats Built)");
  
    }
+   
+
+   
 
 }
