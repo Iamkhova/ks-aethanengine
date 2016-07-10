@@ -181,6 +181,7 @@ public class AEthan {
 	/*
 	 * testSimSession simulate in game session
 	 */
+  
 	private void testSimHalfInning() {
 		CUtil util = new CUtil();
 		int runScored = 0;

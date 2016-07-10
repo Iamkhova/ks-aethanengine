@@ -9,7 +9,8 @@ public class CTeam
    int teamID;
    String teamName;
    String teamName2;
-   CPlayer[] player = new CPlayer[10]; //TODO This is Temp Roster Size
+   CPlayer[] player = new CPlayer[10];
+ //TODO This is Temp Roster Size
    public CManager manager = new CManager();
     
    
@@ -34,7 +35,8 @@ public class CTeam
 		    player[x].testCreate();
         LOG.info("Player Born : " + x);
 
-			}
+			
+}
    
    // Create Manager For Team
        manager.testCreate();

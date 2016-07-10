@@ -37,16 +37,24 @@ public class CAIlogic
  
    // This part of the brain stores the player feedback after scouting another player. Used mostly for Pitcher/Batter scenaories
    class PlayerScouted {
-       double contact;
+ 
+      double contact;
        double gap;
-       double power;
+       double power;
+
        double eye;
-       double avoidK;
-       double runningSpeed;
-       double stealingBases;
-       double baseRunning;
-       double sacrificeBunt;
-       double buntForHit;
+       double avoidK;
+
+       double runningSpeed;
+
+       double stealingBases;
+
+       double baseRunning;
+
+       double sacrificeBunt;
+
+       double buntForHit;
+
        int hitterType;
      }
 
@@ -54,7 +62,15 @@ public class CAIlogic
     Fielding thoughts_fielding = new Fielding();
     ArrayList thoughts_currentbattingorder = new ArrayList();
     PlayerScouted thoughts_playerScouted = new PlayerScouted(); // Set up thoughts to store scouted player info
+  
+    /** Thoughts for next pitch type */
     int thoughts_nextPitch = 0;
+    
+    /** Thoughts for strike zone X coordinates */
+    int thoughts_strikezoneX= 0;
+  
+    /** Thoughts for strike zone Y coordinates */
+    int thoughts_strikezoneY = 0;
     
 
   // Implement Logging
@@ -173,6 +189,23 @@ public class CAIlogic
       
     }
     
-    
+   /**
+   * This is the logic that helps determine where the player wants to pitch the ball.
+   * The accuracy of their pitch will be determine by the player's control stats. 
+   * @param args Unused.
+   * @return Nothing.
+   */ 
+   public void aiChoosePitchLocation()
+     {
+     
+     //For right now lets just say that the player always wants to throw a strike.
+     //Stirike zone is 0,100,200 so the middle would be 100,00
+     //TODO seems this would work better with a vector system.
+     
+     thoughts_strikezoneX = 100;
+     thoughts_strikezoneY = 100;
+     
+     
+   }
 
 }

@@ -74,10 +74,12 @@ public class CPlayer extends CPerson
      */
      public void actionScoutPlayer(CTeam team)
      {
-        String opposingPlayerName;   
+        String opposingPlayerName;
+   
         opposingPlayerName = team.player[0].firstName;
         brain.aiScoutPlayer(team,0);
-        LOG.info("Opposing Player Name:" + opposingPlayerName);  
+        LOG.info("Opposing Player Name:" + opposingPlayerName);
+  
       }
       
       /* Action Pitch Ball
@@ -87,6 +89,8 @@ public class CPlayer extends CPerson
        {
          brain.aiChoosePitch();
          lastThrowSpeed = brain.thoughts_nextPitch * 30;
+         
+         
          
          
          

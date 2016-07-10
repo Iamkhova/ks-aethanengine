@@ -32,7 +32,8 @@ public class CManager extends CPerson
      switch (value)
      {
        case AEthan.AI_DETERMINE_BATTING_ORDER:
-             brain.aiDetermineBattingOrder(team);
+             brain.aiDetermineBattingOrder(team)
+;
        break;
        case AEthan.AI_DETERMINE_FIELDING:
              brain.aiDetermineFielding(team);

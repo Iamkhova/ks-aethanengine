@@ -49,6 +49,8 @@ public class CPerson
  //  BallDirection lastPitch = new BallDirection();
    
    double lastThrowSpeed = 0.0;
+   int throwing_strikezoneX = 0.0;
+  int throwing_strikezoneY = 0.0;
    
    // At the moment not sure where to best store this.
    // The player lastThrowSpeed is the speed of this throwing arm
